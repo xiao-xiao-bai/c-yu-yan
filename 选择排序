@@ -1,0 +1,44 @@
+#include <stdio.h>
+int main()
+{
+    int a[10];
+    int i,j;
+    int temp;//临时变量
+    int n;//记录每一轮最大值数组元素的下标
+    int max;//最大值
+    printf("请输入10个数:");
+    for(i = 0;i < 10;i ++)
+    {
+        scanf("%d",&a[i]);
+    }
+    //开始选择排序
+    for(i = 0;i < 10 - 1;i ++)
+    {
+        max = a[i];
+        for(j = i;j < 10;j ++)
+        {
+            if(max <= a[j])
+            {
+                max = a[j];
+                n = j;
+            }
+        }
+        
+        //判断数组中除了第一个赋的值以为还有最大的
+        if(n != i)
+        {
+            temp = a[i];
+            a[i] = a[n];
+            a[n] = temp;
+        }
+    }
+    //打印
+    for(i = 0;i < 10;i ++)
+    {
+        printf("%d ",a[i]);
+    }
+    return 0;
+
+}
+
+
