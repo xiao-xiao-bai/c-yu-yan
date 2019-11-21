@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define N 5
+
+
+int main()
+
+{
+
+    int num[] = {5,4,3,2,1};
+    int temp;//临时变量
+    int i,j;
+    int * ptr_num = num;
+
+    for(i = 0;i < N - 1;i ++)
+    {
+        for(j = 0;j < N -i -1;j ++)//外层循环控制轮数
+        {
+            if(num[j] < num[j + 1])//比上一次次数少一次
+            {
+                temp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = temp;
+            }
+        }
+
+    }
+    for(i = 0; i < N;i ++)
+       {
+
+        printf("%d\t",*(num + i));
+       }
+}
+
